@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 20px 0;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  text-align: center;
+}
+
+.app-body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.developers-side {
+  background-color: #eee;
+  height: 85vh;
+  margin: 10px;
+  padding: 10px;
+}
+
+.developer-list {
+  height: 93%;
+}
+
+.search-developer-input {
+  width: 100%;
+}
+
+.developer-board {
+  background-color: #eee;
+  height: 85vh;
+  margin: 10px;
+  padding: 10px;
+}
+
+.board {
+  padding: 0 20px;
+  height: 95%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #000;
+}
+
+.task-list:last-child {
+  border: none;
+}
+
+.board h3 {
+  text-align: center;
+}
