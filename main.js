@@ -7,6 +7,7 @@ const DATA = {
         {
           id: Math.random().toString(),
           name: "Learn something new!",
+          status: "todo",
         },
       ],
     },
