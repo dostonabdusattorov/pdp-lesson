@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <title>Scrum Dashboard</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Scrum Dashbord</h1>
+    </header>
+    <section class="app-body">
+      <div class="developers-side">
+        <form class="add-developer-form" id="add-developer-form">
+          <input
+            type="text"
+            class="add-developer-input"
+            id="add-developer-input"
+            placeholder="enter developer name..."
+          />
+          <button type="submit" id="add-developer-input">Add developer</button>
+        </form>
+        <ul class="developer-list" id="developer-list"></ul>
+        <input
+          type="text"
+          class="search-developer-input"
+          id="search-developer-input"
+          placeholder="search developer..."
+        />
+      </div>
+      <div class="developer-board">
+        <h2 class="developer-name">Developer name</h2>
+        <div class="board">
+          <div class="task-list todo-task-side">
+            <h3>Todo</h3>
+            <ul class="todo-task-list" id="todo-task-list"></ul>
+          </div>
+          <div class="task-list inprogress-task-side">
+            <h3>In progress</h3>
+            <ul class="inprogress-task-list" id="inprogress-task-list"></ul>
+          </div>
+          <div class="task-list done-task-side">
+            <h3>Done</h3>
+            <ul class="done-task-list" id="done-task-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
