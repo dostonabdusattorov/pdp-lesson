@@ -86,7 +86,7 @@
 }
 
 .single-task-list {
-  height: 90%;
+  height: 89%;
   list-style: none;
   overflow-y: scroll;
 }
@@ -99,4 +99,8 @@
   align-items: center;
   margin: 10px 5px;
   border-radius: 10px;
+}
+
+.hidden {
+  display: none;
 }

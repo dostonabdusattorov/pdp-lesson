@@ -9,11 +9,6 @@ const DATA = {
           name: "Learn something new!",
           status: "todo",
         },
-        {
-          id: Math.random().toString(),
-          name: "Learn something new!",
-          status: "todo",
-        },
       ],
     },
     {
@@ -39,11 +34,19 @@ const developerName = document.querySelector("#developer-name");
 const todoTaskList = document.querySelector("#todo-task-list");
 const inprogressTaskList = document.querySelector("#inprogress-task-list");
 const doneTaskList = document.querySelector("#done-task-list");
+const addTaskForm = document.querySelector("#add-task-form");
+const addTaskInput = document.querySelector("#add-task-input");
 
+// UTILS
 let dragOverTaskStatus = null;
+let currentSelectedDeveloperId = null;
 
 // EVENT_METHODS_1
 const developerSelectionHandler = (developerId) => {
+  addTaskForm.classList.remove("hidden");
+
+  currentSelectedDeveloperId = developerId;
+
   const selectedDeveloper = DATA.developers.find(
     (developer) => developer.id === developerId
   );
@@ -81,7 +84,6 @@ const developerSelectionHandler = (developerId) => {
           return item;
         }
       });
-      console.log(DATA);
 
       developerSelectionHandler(developerId);
     });
@@ -147,6 +149,11 @@ searchDeveloperInput.addEventListener("keyup", (event) => {
   renderDeveloperList(DATA.developers, searchDeveloperInputValue);
 });
 
+let addTaskInputValue = "";
+addTaskInput.addEventListener("keyup", (event) => {
+  addTaskInputValue = event.target.value;
+});
+
 // EVENT_METHODS_2_AND_BINDING
 addDeveloperForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -165,6 +172,34 @@ addDeveloperForm.addEventListener("submit", (event) => {
   renderDeveloperList(DATA.developers, searchDeveloperInputValue);
   addDeveloperInput.value = "";
   addDeveloperInputValue = "";
+});
+
+addTaskForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (addTaskInputValue.length > 0) {
+    DATA.developers = DATA.developers.map((item) => {
+      if (item.id !== currentSelectedDeveloperId) {
+        return item;
+      }
+
+      return {
+        ...item,
+        tasks: [
+          ...item.tasks,
+          {
+            id: Math.random().toString(),
+            name: addTaskInputValue,
+            status: "todo",
+          },
+        ],
+      };
+    });
+
+    developerSelectionHandler(currentSelectedDeveloperId);
+    addTaskInputValue = "";
+    addTaskInput.value = "";
+  }
 });
 
 todoTaskList.addEventListener("dragover", (event) => {
